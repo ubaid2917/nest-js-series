@@ -6,9 +6,10 @@ import { PostController } from './post/post.controller';
 import { UserService } from './user/user.service';
 import { PostService } from './post/post.service';
 import { AlbumModule } from './album/album.module';
+import { EmployeeModule } from './employee/employee.module';
 
 @Module({
-  imports: [AlbumModule],
+  imports: [AlbumModule, EmployeeModule],
   controllers: [AppController, UserController, PostController],
   providers: [AppService, UserService, PostService, ],
 })
