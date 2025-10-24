@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
 import { PostController } from './post/post.controller';
 import { UserService } from './user/user.service';
+import { PostService } from './post/post.service';
+import { AlbumModule } from './album/album.module';
 
 @Module({
-  imports: [],
+  imports: [AlbumModule],
   controllers: [AppController, UserController, PostController],
-  providers: [AppService, UserService],
+  providers: [AppService, UserService, PostService, ],
 })
 export class AppModule {}
