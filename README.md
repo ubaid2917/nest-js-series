@@ -56,8 +56,13 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov 
 
+# generate resource 
+$ nest g res res_name
+
 # generate controller 
 $ nest g controller contoller_name
+
+
 ```   
 
 ## Deployment
