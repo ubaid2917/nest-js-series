@@ -9,10 +9,11 @@ import { AlbumModule } from './album/album.module';
 import { EmployeeModule } from './employee/employee.module';
 import { DetailsController } from './details/details.controller';
 import { CategoryModule } from './category/category.module';
+import { StudentModule } from './student/student.module';
 
 @Module({
-  imports: [AlbumModule, EmployeeModule, CategoryModule],
+  imports: [AlbumModule, EmployeeModule, CategoryModule, StudentModule],
   controllers: [AppController, UserController, PostController, DetailsController],
-  providers: [AppService, UserService, PostService, ],
+  providers: [AppService, UserService, PostService,],
 })
-export class AppModule {}
+export class AppModule { }
