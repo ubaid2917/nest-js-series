@@ -3,12 +3,14 @@ import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UppercasePipe } from '../common/pipes/uppercase/uppercase.pipe'; 
 import { AuthGuard } from '../guards/auth/auth.guard';
+import { ApiKeyGuard } from '../guards/auth/api-key.guard';
 @Controller('student')
 export class StudentController {
   constructor(private readonly studentService: StudentService) { }
 
   @Get()
   @UseGuards(AuthGuard)
+  @UseGuards(ApiKeyGuard)
   getAllStudents() {
     return this.studentService.getAllStudents();
   }
