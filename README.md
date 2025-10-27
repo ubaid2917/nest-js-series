@@ -44,6 +44,31 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## CLI Commands
+
+```bash
+
+# generate resource 
+$ nest g res res_name
+
+# generate controller 
+$ nest g controller contoller_name
+
+# generate service 
+$ nest g service service_name
+
+# generate module 
+$ nest g module module_name 
+
+# generate pipe for validation 
+$ nest g pipe pipe_name 
+
+# generate guards for route access control 
+$ nest g guard guard_name 
+
+```   
+
+
 ## Run tests
 
 ```bash
@@ -55,14 +80,6 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov 
-
-# generate resource 
-$ nest g res res_name
-
-# generate controller 
-$ nest g controller contoller_name
-
-
 ```   
 
 ## Deployment
