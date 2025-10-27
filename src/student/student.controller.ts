@@ -1,12 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
-import { UppercasePipe } from '../common/pipes/uppercase/uppercase.pipe';
+import { UppercasePipe } from '../common/pipes/uppercase/uppercase.pipe'; 
+import { AuthGuard } from '../guards/auth/auth.guard';
 @Controller('student')
 export class StudentController {
   constructor(private readonly studentService: StudentService) { }
 
   @Get()
+  @UseGuards(AuthGuard)
   getAllStudents() {
     return this.studentService.getAllStudents();
   }
