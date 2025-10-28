@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { PostService } from './post.service';
-import { Public } from '../public.decorator';
+import { Public } from '../decorators/public.decorator';
 
 @Controller('post')
 export class PostController {
