@@ -27,7 +27,6 @@ export class StudentController {
     return this.studentService.getStudentById(Number(id));
   }
 
-
   @Post()
   createStudent(
     @Body('name', UppercasePipe) name: string,
