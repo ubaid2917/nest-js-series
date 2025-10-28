@@ -47,7 +47,6 @@ $ npm run start:prod
 ## CLI Commands
 
 ```bash
-
 # generate resource 
 $ nest g res res_name
 
