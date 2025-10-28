@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseFilters, UseGuards } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UppercasePipe } from '../common/pipes/uppercase/uppercase.pipe';
@@ -7,6 +7,7 @@ import { ApiKeyGuard } from '../guards/auth/api-key.guard';
 import { RolesGuard } from '../guards/roles/role.guard';
 import { Roles } from '../guards/roles/roles.decorator';
 import { Role } from '../guards/roles/role.enums';
+import { HttpExceptionFilter } from '../filters/http-exception/http-exception.filter';
 
 @Controller('student')
 // @UseGuards(AuthGuard, ApiKeyGuard, RolesGuard)   // for applying guards at controller level
@@ -16,6 +17,7 @@ export class StudentController {
   @Get()
   @UseGuards(RolesGuard, AuthGuard, ApiKeyGuard)  // for applying guards at route level
   @Roles(Role.Admin)
+  @UseFilters(HttpExceptionFilter)
   getAllStudents() {
     return this.studentService.getAllStudents();
   }
