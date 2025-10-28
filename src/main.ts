@@ -5,7 +5,6 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { ApiKeyGuard } from './guards/auth/api-key.guard';
 import { HttpExceptionFilter } from './filters/http-exception/http-exception.filter';
 
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
