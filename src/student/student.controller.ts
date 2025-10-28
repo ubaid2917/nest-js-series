@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
-import { UppercasePipe } from '../common/pipes/uppercase/uppercase.pipe'; 
+import { UppercasePipe } from '../common/pipes/uppercase/uppercase.pipe';
 import { AuthGuard } from '../guards/auth/auth.guard';
 import { ApiKeyGuard } from '../guards/auth/api-key.guard';
 import { RolesGuard } from '../guards/roles/role.guard';
@@ -30,7 +30,7 @@ export class StudentController {
   createStudent(
     @Body('name', UppercasePipe) name: string,
     @Body() createStudentDto: CreateStudentDto) {
-    createStudentDto.name = name;  
+    createStudentDto.name = name;
     return this.studentService.createStudent(createStudentDto);
   }
 
