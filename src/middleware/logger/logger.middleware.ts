@@ -3,8 +3,8 @@ import { Request, Response, NextFunction } from 'express';
 
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {
-  use(req: any, Request: Response, next: () => void) {
-    console.log(`Request... ${req.method} - ${req.originalUrl}`);
+  use(req: Request, res: Response, next: NextFunction) { 
+    console.log(`Request... [${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
     next();
   }
 }

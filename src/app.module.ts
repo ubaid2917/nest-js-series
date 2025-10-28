@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
@@ -14,6 +14,8 @@ import { CustomerModule } from './customer/customer.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { ApiKeyGuard } from './guards/auth/api-key.guard';
+import { LoggerMiddleware } from './middleware/logger/logger.middleware';
+import { SiteMaintainceMiddleware } from './middleware/site-maintaince/site-maintaince.middleware';
 
 @Module({
   imports: [AlbumModule, EmployeeModule, CategoryModule, StudentModule, CustomerModule],
@@ -24,4 +26,10 @@ import { ApiKeyGuard } from './guards/auth/api-key.guard';
     {provide: APP_GUARD, useClass: ApiKeyGuard},
   ],
 })
-export class AppModule { }
+export class AppModule  implements NestModule { 
+   // Configure middleware globally  
+  configure(consumer: MiddlewareConsumer) {
+   consumer.apply(LoggerMiddleware).forRoutes('*');  // middleware 1
+   consumer.apply(SiteMaintainceMiddleware).forRoutes('*'); // middleware 2
+  }
+}
