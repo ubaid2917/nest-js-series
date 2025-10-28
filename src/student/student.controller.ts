@@ -9,11 +9,12 @@ import { Roles } from '../guards/roles/roles.decorator';
 import { Role } from '../guards/roles/role.enums';
 
 @Controller('student')
-@UseGuards(AuthGuard, ApiKeyGuard, RolesGuard)
+// @UseGuards(AuthGuard, ApiKeyGuard, RolesGuard)   // for applying guards at controller level
 export class StudentController {
   constructor(private readonly studentService: StudentService) { }
 
   @Get()
+  @UseGuards(RolesGuard, AuthGuard, ApiKeyGuard)  // for applying guards at route level
   @Roles(Role.Admin)
   getAllStudents() {
     return this.studentService.getAllStudents();
