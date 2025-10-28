@@ -65,8 +65,11 @@ $ nest g pipe pipe_name
 # generate guards for route access control 
 $ nest g guard guard_name 
 
-# generate exception filter for error handeling
+# generate exception filter for error handling
 $ nest g filter filter_name
+
+# generate middleware 
+$ nest g middleware middleware_name
 
 ```   
 
