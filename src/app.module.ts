@@ -16,9 +16,14 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { ApiKeyGuard } from './guards/auth/api-key.guard';
 import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 import { SiteMaintainceMiddleware } from './middleware/site-maintaince/site-maintaince.middleware';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [AlbumModule, EmployeeModule, CategoryModule, StudentModule, CustomerModule],
+  imports: [AlbumModule, EmployeeModule, CategoryModule, StudentModule, CustomerModule, 
+    ConfigModule.forRoot({
+      isGlobal: true
+    })
+  ],
   controllers: [AppController, UserController, PostController, DetailsController],
   providers: [AppService, UserService, PostService,
 
