@@ -66,6 +66,9 @@ $ nest g pipe pipe_name
 # generate guards for route access control 
 $ nest g guard guard_name 
 
+# generate exception filter for error handeling
+$ nest g filter filter_name
+
 ```   
 
 
